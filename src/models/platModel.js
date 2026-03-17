@@ -8,9 +8,10 @@ exports.getAllPlats = async () => {
 exports.createPlat = async (nom, prix) => {
   await pool.query(
     "INSERT INTO plats (nom, prix) VALUES ($1, $2)",
-    [nom, prix]
+    [nom, Number(prix)]
   );
 };
+
 
 exports.deletePlat = async (id) => {
   await pool.query("DELETE FROM plats WHERE id = $1", [id]);
